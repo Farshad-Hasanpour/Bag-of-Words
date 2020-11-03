@@ -1,5 +1,4 @@
 import nltk
-# nltk.download('punkt') # Run this code for first time in pc
 from heapq import nlargest
 from re import sub
 
@@ -14,9 +13,7 @@ class BagOfWords:
 
 		# For each sentence in corpus
 		for i in range(len(data_entries)):
-			data_entries[i] = data_entries[i].lower()  # Data entry to lower case
-			data_entries[i] = sub(r'\W', ' ', data_entries[i])  # Remove punctuation
-			data_entries[i] = sub(r'\s+', ' ', data_entries[i])  # Remove aditional spaces
+			data_entries[i] = BagOfWords.__preprocess(data_entries[i])
 
 		# Create word frequency dictionary
 		wordfreq = {}
@@ -59,6 +56,7 @@ class BagOfWords:
 		:param text: list of strings: new text input
 		:return: list of int: bag of words for new text input
 		"""
+		text = BagOfWords.__preprocess(text)
 		words = nltk.word_tokenize(text)
 		text_vector = []
 		for feature in self.most_frequent:
@@ -67,3 +65,10 @@ class BagOfWords:
 			else:
 				text_vector.append(0)
 		return text_vector
+
+	@staticmethod
+	def __preprocess(text):
+		text = text.lower()  # Data entry to lower case
+		text = sub(r'\W', ' ', text)  # Remove punctuation
+		text = sub(r'\s+', ' ', text)  # Remove additional spaces
+		return text
