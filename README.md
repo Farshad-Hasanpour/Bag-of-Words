@@ -1,7 +1,7 @@
 # Bag of Words
 
 This code is an implementation for Bag of Words using python.
-It helps you to understand the concept of Bag of Words. Check out (Sci-kit Learn)[https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html] for a better and more detailed function to do this.
+It helps you to understand the concept of Bag of Words. Check out [Sci-kit Learn](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) for a better and more detailed function to do this.
 
 ## Usage
 
